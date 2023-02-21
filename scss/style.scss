@@ -39,17 +39,16 @@ body {
           background-color: #fff5ee;
           border-radius: 5px;
           box-shadow: 0 2px 15px #8f47445b;
-          transition: transform 0.25s linear;
-          backface-visibility: hidden;
+          transition: transform 0.35s linear;
+
           &:hover {
-            backface-visibility: visible;
-            //
             transform: rotateY(-180deg);
           }
         }
 
         .front-view {
           transform: rotateY(0);
+          backface-visibility: visible;
           &:hover {
             transform: rotateY(-180deg);
           }
