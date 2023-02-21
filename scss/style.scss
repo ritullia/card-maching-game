@@ -3,19 +3,19 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(14, 71, 155) !important;
+  background-color: #f89880 !important;
 
   .container {
-    height: 400px;
-    width: 400px;
-    background-color: rgb(163, 232, 235);
+    height: 450px;
+    width: 450px;
+    padding: 30px;
+    // background-color: #fff5ee;
     border-radius: 10px;
     .cards {
       width: 100%;
       height: 100%;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       flex-wrap: wrap;
 
       .card {
@@ -25,21 +25,24 @@ body {
         flex-wrap: wrap;
         width: calc(30% - 30px);
         height: calc(30% - 30px);
+        perspective: 800px;
+        background-color: #fff5ee;
+        border-radius: 5px;
+        box-shadow: 0 2px 15px #8f47445b;
+        transform-style: preserve-3d;
+        position: relative;
 
-        .view {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
         .front-view {
-          display: none;
+          position: absolute;
+          transform: rotateY(-180deg);
           span img {
-            max-width: 45px;
+            max-width: 40px;
           }
         }
-
-        .back-view img {
-          max-width: 45px;
+        .back-view {
+          img {
+            max-width: 55px;
+          }
         }
       }
     }
