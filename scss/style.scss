@@ -22,26 +22,56 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
-        width: calc(30% - 30px);
-        height: calc(30% - 30px);
-        perspective: 800px;
-        background-color: #fff5ee;
-        border-radius: 5px;
-        box-shadow: 0 2px 15px #8f47445b;
-        transform-style: preserve-3d;
+        width: calc(50% / 2 - 10px);
+        height: calc(50% / 2 - 10px);
+
+        cursor: pointer;
         position: relative;
 
-        .front-view {
+        .top {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          perspective: 800px;
+          width: 100%;
           position: absolute;
-          transform: rotateY(-180deg);
-          span img {
-            max-width: 40px;
+          height: 100%;
+          background-color: #fff5ee;
+          border-radius: 5px;
+          box-shadow: 0 2px 15px #8f47445b;
+          transition: transform 0.25s linear;
+          backface-visibility: hidden;
+          &:hover {
+            backface-visibility: visible;
+            //
+            transform: rotateY(-180deg);
           }
         }
+
+        .front-view {
+          transform: rotateY(0);
+          &:hover {
+            transform: rotateY(-180deg);
+          }
+          .icon {
+            width: 100%;
+            height: 100%;
+            background-color: #b35741;
+            border-radius: 5px;
+            position: absolute;
+          }
+        }
+
         .back-view {
+          transform: rotateY(-180deg);
+          backface-visibility: hidden;
+
+          &:hover {
+            backface-visibility: visible;
+            transform: rotateY(-180deg);
+          }
           img {
-            max-width: 55px;
+            max-width: 40px;
           }
         }
       }
