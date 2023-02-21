@@ -1,0 +1,79 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f89880 !important;
+
+  .container {
+    height: 450px;
+    width: 450px;
+    padding: 30px;
+    // background-color: #fff5ee;
+    border-radius: 10px;
+    .cards {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(50% / 2 - 10px);
+        height: calc(50% / 2 - 10px);
+
+        cursor: pointer;
+        position: relative;
+
+        .top {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          perspective: 800px;
+          width: 100%;
+          position: absolute;
+          height: 100%;
+          background-color: #fff5ee;
+          border-radius: 5px;
+          box-shadow: 0 2px 15px #8f47445b;
+          transition: transform 0.35s linear;
+
+          &:hover {
+            transform: rotateY(-180deg);
+          }
+        }
+
+        .front-view {
+          transform: rotateY(0);
+          backface-visibility: visible;
+          &:hover {
+            transform: rotateY(-180deg);
+          }
+          .icon {
+            width: 100%;
+            height: 100%;
+            background-color: #b35741;
+            border-radius: 5px;
+            position: absolute;
+          }
+        }
+
+        .back-view {
+          transform: rotateY(-180deg);
+          backface-visibility: hidden;
+
+          &:hover {
+            backface-visibility: visible;
+            transform: rotateY(-180deg);
+          }
+          img {
+            max-width: 40px;
+          }
+        }
+      }
+    }
+  }
+}
