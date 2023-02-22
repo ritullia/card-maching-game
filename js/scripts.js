@@ -6,20 +6,35 @@ console.log(cards);
 let clickCardOne;
 let clickCardTwo;
 
-function flipCard(e) {
-    let clickCard = e.target;
-    clickCard.classList.toggle('flip')
-    console.log(clickCard);
+function flipCard(card) {
+    let clickCard = card.target;
 
-    if (!clickCardOne) {
-        return clickCardOne - clickCard
-    };
-    clickCardTwo = clickCard;
+    if (clickCard !== clickCardOne) {
+        clickCard.classList.toggle('flip')
+        if (!clickCardOne) {
+            return clickCardOne = clickCard
+        };
+        clickCardTwo = clickCard;
+        matchCards(card)
+
+
+    }
+}
 
 
 
+
+
+let cardOneImg
+let cardTwoImg
+
+function matchCards(card) {
+    console.log(cardOneImg)
 }
 
 cards.forEach((card) => {
-    card.addEventListener('click', flipCard)
+    card.addEventListener('click', () => {
+        flipCard(card)
+
+    })
 })
