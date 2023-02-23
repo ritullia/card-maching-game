@@ -1,40 +1,39 @@
 console.log("veikia");
 
-const cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll('.cards .card');
 console.log(cards);
 
-let clickCardOne;
-let clickCardTwo;
-
-function flipCard(card) {
-    let clickCard = card.target;
-
-    if (clickCard !== clickCardOne) {
-        clickCard.classList.toggle('flip')
-        if (!clickCardOne) {
-            return clickCardOne = clickCard
-        };
-        clickCardTwo = clickCard;
-        matchCards(card)
-
-
-    }
-}
-
-
-
-
-
-let cardOneImg
-let cardTwoImg
-
-function matchCards(card) {
-    console.log(cardOneImg)
-}
+let counter = 0;
+let firstClick;
+let secondClick;
 
 cards.forEach((card) => {
     card.addEventListener('click', () => {
-        flipCard(card)
+        card.classList.add('flipped');
 
+        console.log(card);
+
+        if (counter === 0) {
+            firstClick = card.getAttribute("emoji")
+            counter++;
+        } else {
+            secondClick = card.getAttribute("emoji")
+            counter = 0
+
+            if (firstClick === secondClick) {
+                const correctCard = document.querySelectorAll(".card[emoji='" + firstClick + "'] ")
+
+                correctCard[0].classList.add('flip-card')
+                correctCard[1].classList.add('flip-card')
+            }
+
+
+        }
+
+
+
+        console.log(firstClick)
+        console.log(secondClick)
     })
 })
+
