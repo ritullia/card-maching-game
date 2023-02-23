@@ -3,37 +3,33 @@ console.log("veikia");
 const cards = document.querySelectorAll('.cards .card');
 console.log(cards);
 
-let counter = 0;
-let firstClick;
-let secondClick;
-
+//  paspaudimo veiksmas kiekvienai kortelei
 cards.forEach((card) => {
     card.addEventListener('click', () => {
-        card.classList.add('flipped');
+        cardFlipped(card)
+        matchCards(card)
 
-        console.log(card);
-
-        if (counter === 0) {
-            firstClick = card.getAttribute("emoji")
-            counter++;
-        } else {
-            secondClick = card.getAttribute("emoji")
-            counter = 0
-
-            if (firstClick === secondClick) {
-                const correctCard = document.querySelectorAll(".card[emoji='" + firstClick + "'] ")
-
-                correctCard[0].classList.add('flip-card')
-                correctCard[1].classList.add('flip-card')
-            }
-
-
-        }
-
-
-
-        console.log(firstClick)
-        console.log(secondClick)
     })
-})
+});
+
+
+let firstCard;
+let secondCard;
+
+function cardFlipped(card) {
+    card.classList.add('flipped');
+
+
+}
+
+
+//funkcija sutampancioms kortelems
+function matchCards(card) {
+    let firstCard = card.imageObject.src
+    console.log(firstCard)
+
+
+}
+
+const cardArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
